@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 # Koushik_Portfolio
 
 >>>>>>> 454a226c20b74018458f6c45b0fdd258a47844ff
