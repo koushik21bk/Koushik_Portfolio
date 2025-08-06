@@ -84,35 +84,8 @@ const portfolioData = {
       }
     ]
   },
-  
-  skills: {
-        title: "Skills",
-        categories: [
-          {
-            name: "Cloud & DevOps Tools",
-            skills: ["AWS", "Azure", "Ansible", "Jenkins", "GitHub", "CI/CD"]
-          },
-          {
-            name: "Programming Languages.",
-            skills: ["Python", "Java"]
-          },
-          {
-            name: "Database",
-            skills: ["MySQL"]
-          },
-          {
-            name: "Cybersecurity",
-            skills: ["Security Principles & Governance", "Cyber Laws & Regulations"]
-          },
-          {
-            name: "Platforms & Tools",
-            skills: ["Windows", "Linux", "Visual Studio", "IntelliJ"]
-          }
-        ]
-      },
-    
-  
-  projects: {
+
+     projects: {
     title: "Projects",
     items: [
       {
@@ -145,6 +118,36 @@ const portfolioData = {
       }
     ]
   },
+   
+  
+  skills: {
+        title: "Skills",
+        categories: [
+          {
+            name: "Cloud & DevOps Tools",
+            skills: ["AWS", "Azure", "Ansible", "Jenkins", "GitHub", "CI/CD"]
+          },
+          {
+            name: "Programming Languages.",
+            skills: ["Python", "Java"]
+          },
+          {
+            name: "Database",
+            skills: ["MySQL"]
+          },
+          {
+            name: "Cybersecurity",
+            skills: ["Security Principles & Governance", "Cyber Laws & Regulations"]
+          },
+          {
+            name: "Platforms & Tools",
+            skills: ["Windows", "Linux", "Visual Studio", "IntelliJ"]
+          }
+        ]
+      },
+    
+  
+
   
   certifications: {
     title: "Certifications",
