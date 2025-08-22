@@ -47,25 +47,7 @@ const portfolioData = {
         content: `Cloud and DevOps enthusiast with hands-on project experience in Cloud technologies. Proficient in cloud platforms (AWS, Azure), and Python, Java Fundamentals. Committed to leveraging cloud-native practices to deliver efficient, resilient solutions. Open to opportunities and to contribute effectively for organizational and personal growth.`
   },
   
-  education: {
-    title: "Education",
-    items: [
-      {
-        degree: "MCA: Cloud Technologies and DevOps",
-        institution: "Jain University, Bengaluru",
-        period: "Aug 2023 - June 2025",
-        grade: "CGPA: 8.28"
-      },
-      {
-        degree: "BCA: Computer Applications",
-        institution: "S.R.N.M.N, Kuvempu University, Shivamogga",
-        period: "Jun 2019 - Sep 2022",
-        grade: "CGPA: 8.17"
-      }
-    ]
-  },
-  
-  experience: {
+    experience: {
     title: "Experience",
     items: [
       {
@@ -85,6 +67,7 @@ const portfolioData = {
     ]
   },
 
+<<<<<<< HEAD
      projects: {
     title: "Projects",
     items: [
@@ -119,6 +102,64 @@ const portfolioData = {
     ]
   },
    
+=======
+
+  education: {
+    title: "Education",
+    items: [
+      {
+        degree: "MCA: Cloud Technologies and DevOps",
+        institution: "Jain University, Bengaluru",
+        period: "Aug 2023 - June 2025",
+        grade: "CGPA: 8.28"
+      },
+      {
+        degree: "BCA: Computer Applications",
+        institution: "S.R.N.M.N, Kuvempu University, Shivamogga",
+        period: "Jun 2019 - Sep 2022",
+        grade: "CGPA: 8.17"
+      }
+    ]
+  },
+  
+        projects: {
+        title: "Projects",
+        items: [
+          {
+            name: "AWS EC2 - Automation",
+                    
+            description: "Automated EC2 provisioning and configuration using Ansible playbooks, reducing manual deployment time. Installed and configured MySQL servers on AWS instances as part of automated infrastructure setup. Enhanced cloud readiness by implementing consistent and repeatable automation workflows.",
+            tech: ["Ansible", "Ansible Galaxy", "AWS EC2", "Visual Studio Code"],
+            github: "https://github.com/koushik21bk/Ansible-Galaxy-Automation",
+             period: "Mar 2025 – May 2025"
+          },
+          {
+            name: "ZenDrive",
+             
+            description: "Designed a secure, cloud-integrated CMS using DriveHQ for encrypted file storage and retrieval. Implemented data deduplication, compression, and file ranking algorithms, increasing storage efficiency by 10.91%. Applied DES encryption for secure transmission of uploaded/downloaded files to ensure data confidentiality.",
+            tech: ["DriveHQ", "Java", "HeidiSQL", "Netbeans"],
+            github: "https://github.com/koushik21bk/ZenDrive",
+            period: "Oct 2024 – Jun 2025"
+          },
+          {
+            name: "SecureSnap",
+            
+            description: "Contributed to backend development of a secure stock photo e-commerce app. Implemented JWT authentication and SSL/TLS protocols for secure user sessions and transactions. Collaborated on frontend using HTML/CSS and ensured responsive UI.",
+            tech: ["Django", "PostgreSQL", "JWT", "TLS/SSL"],
+            github: "https://github.com/koushik21bk/Securesnap",
+            period: "July 2024 - Aug 2024"
+          },
+          {
+            name: "QR-Based Smart Medicine System",
+            
+            description: "Built a mobile app using Java and Android Studio to scan medicine QR codes and display real-time prescription data. Integrated a smart reminder system with alerts for scheduled and emergency-based medication notifications. Used MySQL and PHP (XAMPP) for storing and retrieving dosage, expiry, and side-effect data from a central database.",
+           tech: ["Java", "Android Studio", "MySQL", "PHP"], 
+           github: "https://github.com/koushik21bk/REAL-TIME-QR-CODE-BASED-SMART-MEDICINE-SYSTEM",
+          period: "Jun 2022 – Nov 2022"
+          }
+        ]
+      },
+>>>>>>> 5e6328d (updated portfolio content)
   
   skills: {
         title: "Skills",
@@ -308,9 +349,10 @@ function renderProjects(container) {
           <i class="fab fa-github"></i>
         </a>
       </h3>
-      <p><strong>Period:</strong> ${project.period}</p>
-      <p><strong>Technologies:</strong> ${project.tech.join(' • ')}</p>
       <p>${project.description}</p>
+      
+      <p><strong>Technologies:</strong> ${project.tech.join(' • ')}</p>
+      <p><strong>Period:</strong> ${project.period}</p>
     `;
     grid.appendChild(card);
   });

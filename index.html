@@ -58,7 +58,7 @@
       z-index: 1000;
       display: flex;
       gap: 1rem;
-      align-items: center;
+      align-items: center;    
     }
 
     .socials a {
@@ -125,7 +125,7 @@
     .profile-pic {
       width: 160px;
       height: 160px;
-      border-radius: 50%;
+      border-radius: 30%;
       background: url('assets/images/Profile bg.jpg') no-repeat center center/cover;
       border: 4px solid var(--primary);
       box-shadow: var(--neon-glow);
@@ -156,7 +156,6 @@
       margin: 0.2rem 0;
       font-size: 1rem;
     }
-
     .skills-tagline {
       margin-top: 1rem;
       font-style: italic;
@@ -212,7 +211,7 @@
       to { transform: translateX(-100%); }
     }
 
-    /* Scroll Button */
+    /* Scroll Button
     .scroll-button {
       display: block;
       margin: 2rem auto;
@@ -228,7 +227,7 @@
       animation: bounce 1.5s infinite;
       position: relative;
       z-index: 10;
-    }
+    } */
 
     .scroll-button:hover {
       background: var(--primary);
@@ -563,7 +562,7 @@
         width: 45px;
         height: 45px;
         font-size: 1.1rem;
-      }
+      } 
       
       .two-column,
       .three-column {
@@ -602,57 +601,50 @@
   <canvas class="circuit-bg"></canvas>
   <div class="overlay"></div>
   
-  <!-- Header with Social Links & Theme Toggle -->
-  <div class="socials">
-    <a href="https://github.com/Koushik21bk" target="_blank" title="GitHub">
-      <i class="fab fa-github"></i>
-    </a>
-    <a href="https://www.linkedin.com/in/koushik21bk/" target="_blank" title="LinkedIn">
-      <i class="fab fa-linkedin"></i>
-    </a>
-    <button class="theme-switch" onclick="toggleTheme()" title="Toggle Theme">
-      <i class="fas fa-sun" id="theme-icon"></i>
-    </button>
-  </div>
+
+  
+<!-- Header with Social Links & Theme Toggle -->
+<div class="socials">
+  <a href="https://github.com/Koushik21bk" target="_blank" title="GitHub">
+    <i class="fab fa-github"></i>
+  </a>
+  <a href="https://www.linkedin.com/in/koushik21bk/" target="_blank" title="LinkedIn">
+    <i class="fab fa-linkedin"></i>
+  </a>
+  <button class="theme-switch" onclick="toggleTheme()" title="Toggle Theme">
+    <i class="fas fa-sun" id="theme-icon"></i>
+  </button>
+</div>
+
+
 
   <!-- Profile Section -->
   <div class="profile-section">
     <div class="profile-pic"></div>
     <div class="profile-details">
       <h1>Koushik B K</h1>
-      <div class="role">Master of Computer Application</div>
+      <div class="role">Cloud & DevOps Engineer</div>
       <p><i class="fas fa-envelope" style="color: var(--primary); margin-right: 0.5rem;"></i> koushik21bk@gmail.com</p>
       <p><i class="fas fa-phone" style="color: var(--primary); margin-right: 0.5rem;"></i> +91 7899374645</p>
-      <p class="skills-tagline"> AWS | Azure | DevOps | Cybersecurity | Java | Python</p>
+      <p class="skills-tagline">AWS | Azure | DevOps | Cybersecurity |Python</p>
       <a href="https://drive.google.com/file/d/1kxByjcnVVm7asZ-Uc3oJSc6yDYY1CmbH/view?usp=sharing" 
          target="_blank" class="resume-button">
-        <i class="fas fa-download"></i> Download Resume
+        <i class="fas fa-download"></i> Resume
       </a>
     </div>
   </div>
+
 
   <!-- Floating Text -->
   <div class="floating-text">
     <span> • Open to opportunities • Let's connect!</span>
   </div>
   
-  <!-- Scroll Button -->
+  <!-- Scroll Button
   <button class="scroll-button" onclick="document.getElementById('portfolio').scrollIntoView({behavior: 'smooth'})">
     <i class="fas fa-chevron-down"></i>
-  </button>
+  </button> -->
 
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
 
   <!-- Portfolio Section -->
   <div class="portfolio-section" id="portfolio">
@@ -698,28 +690,11 @@
     const portfolioData = {
       about: {
         title: "About Me",
-        content: `Cloud and DevOps enthusiast with hands-on project experience in Cloud technologies. Proficient in cloud platforms (AWS, Azure), and Python, Java Fundamentals. Committed to leveraging cloud-native practices to deliver efficient, resilient solutions. Open to opportunities and to contribute effectively for organizational and personal growth.`
+        content: `MCA graduate specializing in Cloud Technologies and Cybersecurity, with strong skills in AWS, Azure, Jenkins, Ansible, Docker, Python and Kubernetes. Experienced in automating infrastructure provisioning, building CI/CD pipelines, Linux, and System support. Intermediate in Java, Python, and MySQL, with hands-on projects in Cloud automation, secure management, and backend development. Certified in Microsoft Azure Fundamentals (AZ-900) and passionate about delivering secure, scalable, and efficient cloud-native solutions and DevOps enthusiast with hands-on project experience in tools & technologies. Committed to leveraging cloud-native practices to deliver efficient solutions. Open to opportunities and to contribute effectively for organizational and personal growth.`
       },
       
-      education: {
-        title: "Education",
-        items: [
-          {
-            degree: "MCA: Cloud Technologies and DevOps",
-            institution: "Jain University, Bengaluru",
-            period: "Aug 2023 - June 2025",
-            grade: "CGPA: 8.28"
-          },
-          {
-            degree: "BCA: Computer Applications", 
-            institution: "S.R.N.M.N College, Kuvempu University, Shivamogga",
-            period: "Jun 2019 - Sep 2022",
-            grade: "CGPA: 8.45"
-          }
-        ]
-      },
-      
-      experience: {
+
+            experience: {
         title: "Experience",
         items: [
                     {
@@ -740,37 +715,62 @@
 
         ]
       },
+      
 
-            projects: {
+      education: {
+        title: "Education",
+        items: [
+          {
+            degree: "MCA: Cloud Technologies and DevOps",
+            institution: "Jain University, Bengaluru",
+            period: "Aug 2023 - June 2025",
+            grade: "CGPA: 8.28"
+          },
+          {
+            degree: "BCA: Computer Applications", 
+            institution: "S.R.N.M.N College, Kuvempu University, Shivamogga",
+            period: "Jun 2019 - Sep 2022",
+            grade: "CGPA: 8.45"
+          }
+        ]
+      },
+      
+
+
+       projects: {
         title: "Projects",
         items: [
           {
             name: "AWS EC2 - Automation",
-            period: "Mar 2025 – May 2025",
-            tech: ["Ansible", "AWS EC2", "MySQL"],
+                    
             description: "Automated EC2 provisioning and configuration using Ansible playbooks, reducing manual deployment time. Installed and configured MySQL servers on AWS instances as part of automated infrastructure setup. Enhanced cloud readiness by implementing consistent and repeatable automation workflows.",
-            github: "https://github.com/koushik21bk/Ansible-Galaxy-Automation"
+            tech: ["Ansible", "Ansible Galaxy", "AWS EC2", "Visual Studio Code"],
+            github: "https://github.com/koushik21bk/Ansible-Galaxy-Automation",
+             period: "Mar 2025 – May 2025"
           },
           {
-            name: "Cloud File Management System",
-            period: "Oct 2024 – Jun 2025", 
-            tech: ["DriveHQ", "DES Encryption", "Compression", "Deduplication"],
+            name: "ZenDrive",
+             
             description: "Designed a secure, cloud-integrated CMS using DriveHQ for encrypted file storage and retrieval. Implemented data deduplication, compression, and file ranking algorithms, increasing storage efficiency by 10.91%. Applied DES encryption for secure transmission of uploaded/downloaded files to ensure data confidentiality.",
-            github: "https://github.com/koushik21bk/ZenDrive"
+            tech: ["DriveHQ", "Java", "HeidiSQL", "Netbeans"],
+            github: "https://github.com/koushik21bk/ZenDrive",
+            period: "Oct 2024 – Jun 2025"
           },
           {
             name: "SecureSnap",
-            period: "July 2024 - Aug 2024",
-            tech: ["Django", "PostgreSQL", "JWT", "TLS/SSL"],
+            
             description: "Contributed to backend development of a secure stock photo e-commerce app. Implemented JWT authentication and SSL/TLS protocols for secure user sessions and transactions. Collaborated on frontend using HTML/CSS and ensured responsive UI.",
-            github: "https://github.com/koushik21bk/Securesnap"
+            tech: ["Django", "PostgreSQL", "JWT", "TLS/SSL"],
+            github: "https://github.com/koushik21bk/Securesnap",
+            period: "July 2024 - Aug 2024"
           },
           {
             name: "QR-Based Smart Medicine System",
-            period: "Jun 2022 – Nov 2022",
-            tech: ["Java", "Android Studio", "MySQL", "PHP"],
+            
             description: "Built a mobile app using Java and Android Studio to scan medicine QR codes and display real-time prescription data. Integrated a smart reminder system with alerts for scheduled and emergency-based medication notifications. Used MySQL and PHP (XAMPP) for storing and retrieving dosage, expiry, and side-effect data from a central database.",
-            github: "https://github.com/koushik21bk/REAL-TIME-QR-CODE-BASED-SMART-MEDICINE-SYSTEM"
+           tech: ["Java", "Android Studio", "MySQL", "PHP"], 
+           github: "https://github.com/koushik21bk/REAL-TIME-QR-CODE-BASED-SMART-MEDICINE-SYSTEM",
+          period: "Jun 2022 – Nov 2022"
           }
         ]
       },
@@ -779,11 +779,11 @@
         title: "Skills",
         categories: [
           {
-            name: "Cloud & DevOps Tools",
-            skills: ["AWS", "Azure", "Ansible", "Jenkins", "GitHub", "CI/CD"]
+            name: "Cloud & DevOps Tools:",
+            skills: ["AWS", "Azure", "Ansible", "Jenkins", "GitHub", "Docker", "Kubernetes", "CI/CD"]
           },
           {
-            name: "Programming Languages.",
+            name: "Programming Languages:",
             skills: ["Python", "Java"]
           },
           {
@@ -791,16 +791,23 @@
             skills: ["MySQL"]
           },
           {
-            name: "Cybersecurity",
-            skills: ["Security Principles & Governance", "Cyber Laws & Regulations"]
+            name: " Networking & Cybersecurity:",
+            skills: [ "Network types", "TCP/IP", "OSI", "DNS", "Topologies", "Models","Security Principles", "Regulations & Standards", "Cyber Laws"]
           },
           {
-            name: "Platforms & Tools",
+            name: "Infrastructure support:",
+            skills: [ "Software installation", "Troubleshooting", "RDP tools", "Network configuration", "ADDS", "Log management"]
+          },
+          
+          {
+            name: "Platforms:",
             skills: ["Windows", "Linux", "Visual Studio", "IntelliJ"]
           }
         ]
       },
       
+
+
       certifications: {
         title: "Certifications",
         cloud: [
@@ -839,15 +846,52 @@
         ],
         programming: [
           {
+            name: "Python Programming",
+            issuer: "HackerRank",
+            link: "https://www.hackerrank.com/certificates/0470541c3407"
+          },
+        {
             name: "Java Programming",
             issuer: "HackerRank",
             link: "https://www.hackerrank.com/certificates/3e29e614211b"
           }
-        
+
         ]
       },
       
-
+      projects: {
+        title: "Projects",
+        items: [
+          {
+            name: "AWS EC2 - Automation",
+            period: "Mar 2025 – May 2025",
+            tech: ["Ansible", "AWS EC2", "MySQL"],
+            description: "Automated EC2 provisioning and configuration using Ansible playbooks, reducing manual deployment time. Installed and configured MySQL servers on AWS instances as part of automated infrastructure setup. Enhanced cloud readiness by implementing consistent and repeatable automation workflows.",
+            github: "https://github.com/koushik21bk/Ansible-Galaxy-Automation"
+          },
+          {
+            name: "Cloud File Management System",
+            period: "Oct 2024 – Jun 2025", 
+            tech: ["DriveHQ", "DES Encryption", "Compression", "Deduplication"],
+            description: "Designed a secure, cloud-integrated CMS using DriveHQ for encrypted file storage and retrieval. Implemented data deduplication, compression, and file ranking algorithms, increasing storage efficiency by 10.91%. Applied DES encryption for secure transmission of uploaded/downloaded files to ensure data confidentiality.",
+            github: "https://github.com/koushik21bk/ZenDrive"
+          },
+          {
+            name: "SecureSnap",
+            period: "July 2024 - Aug 2024",
+            tech: ["Django", "PostgreSQL", "JWT", "TLS/SSL"],
+            description: "Contributed to backend development of a secure stock photo e-commerce app. Implemented JWT authentication and SSL/TLS protocols for secure user sessions and transactions. Collaborated on frontend using HTML/CSS and ensured responsive UI.",
+            github: "https://github.com/koushik21bk/Securesnap"
+          },
+          {
+            name: "QR-Based Smart Medicine System",
+            period: "Jun 2022 – Nov 2022",
+            tech: ["Java", "Android Studio", "MySQL", "PHP"],
+            description: "Built a mobile app using Java and Android Studio to scan medicine QR codes and display real-time prescription data. Integrated a smart reminder system with alerts for scheduled and emergency-based medication notifications. Used MySQL and PHP (XAMPP) for storing and retrieving dosage, expiry, and side-effect data from a central database.",
+            github: "https://github.com/koushik21bk/REAL-TIME-QR-CODE-BASED-SMART-MEDICINE-SYSTEM"
+          }
+        ]
+      },
       
       extracurricular: {
         title: "Extracurricular",
@@ -858,7 +902,7 @@
             link: "#"
           },
           {
-            title: "Conference Attendance",
+            title: "Conference",
             description: "AWSome Day Conference - AWS (2024)"
           },
           {
@@ -878,8 +922,8 @@
       renderEducation(container);
       renderExperience(container);
       renderSkills(container);
-      renderCertifications(container);
       renderProjects(container);
+      renderCertifications(container);
       renderExtracurricular(container);
     }
 
@@ -962,6 +1006,32 @@
       container.appendChild(section);
     }
 
+        // Render Projects section
+    function renderProjects(container) {
+      const section = createSection(portfolioData.projects.title);
+      const grid = document.createElement('div');
+      grid.className = 'two-column';
+      
+      portfolioData.projects.items.forEach(project => {
+        const card = createCard();
+        card.innerHTML = `
+          <h3 style="color: var(--primary); margin-bottom: 1rem;">${project.name}
+            <a href="${project.github}" target="_blank" style="color: var(--primary); margin-left: 0.5rem; font-size: 0.9rem;">
+              <i class="fab fa-github"></i>
+            </a>
+          </h3>
+          <p style="line-height: 1.7; margin-top: 1rem;">${project.description}</p>
+          <p><strong>Technologies:</strong> ${project.tech.join(' • ')}</p>
+          <p><strong>Period:</strong> ${project.period}</p>
+        `;
+        grid.appendChild(card);
+      });
+      
+      section.appendChild(grid);
+      container.appendChild(section);
+    }
+
+
     // Render Certifications section
     function renderCertifications(container) {
       const section = createSection(portfolioData.certifications.title);
@@ -1027,30 +1097,6 @@
       container.appendChild(section);
     }
 
-    // Render Projects section
-    function renderProjects(container) {
-      const section = createSection(portfolioData.projects.title);
-      const grid = document.createElement('div');
-      grid.className = 'two-column';
-      
-      portfolioData.projects.items.forEach(project => {
-        const card = createCard();
-        card.innerHTML = `
-          <h3 style="color: var(--primary); margin-bottom: 1rem;">${project.name}
-            <a href="${project.github}" target="_blank" style="color: var(--primary); margin-left: 0.5rem; font-size: 0.9rem;">
-              <i class="fab fa-github"></i>
-            </a>
-          </h3>
-          <p><strong>Period:</strong> ${project.period}</p>
-          <p><strong>Technologies:</strong> ${project.tech.join(' • ')}</p>
-          <p style="line-height: 1.7; margin-top: 1rem;">${project.description}</p>
-        `;
-        grid.appendChild(card);
-      });
-      
-      section.appendChild(grid);
-      container.appendChild(section);
-    }
 
     // Render Extracurricular section
     function renderExtracurricular(container) {
