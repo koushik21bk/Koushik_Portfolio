@@ -835,7 +835,7 @@ skills: {
 },
       certifications: {
   title: "Certifications",
-  
+
   cloud: [
     {
       name: "Azure Fundamentals (AZ-900)",
@@ -858,12 +858,12 @@ skills: {
     {
       name: "Career Essentials in System Administration",
       issuer: "Microsoft & LinkedIn Learning",
-      link: "#"
+      link: "https://drive.google.com/file/d/1BomYHoboAL1KKbJRnvJh8jGE-IUJ181K/view?usp=sharing"
     },
     {
       name: "Managing Windows Servers, Virtualization & Containerization",
       issuer: "Coursera",
-      link: "#"
+      link: "https://drive.google.com/file/d/1kF33Ow-6QpCizNJmXI4Q5aa29pPZUAPZ/view?usp=sharing"
     }
   ],
 
@@ -900,28 +900,7 @@ skills: {
       link: "https://www.hackerrank.com/certificates/3e29e614211b"
     }
   ]
-},
-      
-
-      extracurricular: {
-        title: "Extracurricular",
-        items: [
-          {
-            title: "Published Paper",
-            description: "Synergizing Cloud in Autonomous Vehicles (2024) - IJSREM",
-            link: "#"
-          },
-          {
-            title: "Conference",
-            description: "AWSome Day Conference - AWS (2024)"
-          },
-          {
-            title: "Volunteer Work",
-            description: "Active in National Service Scheme (2019-2022)"
-          }
-        ]
-      }
-    };
+}
 
     // Initialize portfolio
     function initializePortfolio() {
@@ -1041,72 +1020,68 @@ skills: {
       container.appendChild(section);
     }
 
+// Render Certifications section
+function renderCertifications(container) {
+  const section = createSection(portfolioData.certifications.title);
+  const grid = document.createElement('div');
+  grid.className = 'cert-grid';
 
-    // Render Certifications section
-    function renderCertifications(container) {
-      const section = createSection(portfolioData.certifications.title);
-      const grid = document.createElement('div');
-      grid.className = 'cert-grid';
-      
-      // Cloud Technologies Column
-      const cloudCol = document.createElement('div');
-      cloudCol.className = 'cert-column';
-      cloudCol.innerHTML = '<div class="cert-header">Cloud Technologies</div>';
-      portfolioData.certifications.cloud.forEach(cert => {
-        const item = document.createElement('div');
-        item.className = 'cert-item';
-        item.innerHTML = `
-          <strong>${cert.name}</strong>
-          <span style="color: var(--text-light); opacity: 0.8;">${cert.issuer}</span>
-          <a href="${cert.link}" target="_blank" title="View Certificate">
-            <i class="fas fa-external-link-alt"></i>
-          </a>
-        `;
-        cloudCol.appendChild(item);
-      });
-      
-      // Cybersecurity Column
-      const cyberCol = document.createElement('div');
-      cyberCol.className = 'cert-column';
-      cyberCol.innerHTML = '<div class="cert-header">Cybersecurity</div>';
-      portfolioData.certifications.cybersecurity.forEach(cert => {
-        const item = document.createElement('div');
-        item.className = 'cert-item';
-        item.innerHTML = `
-          <strong>${cert.name}</strong>
-          <span style="color: var(--text-light); opacity: 0.8;">${cert.issuer}</span>
-          <a href="${cert.link}" target="_blank" title="View Certificate">
-            <i class="fas fa-external-link-alt"></i>
-          </a>
-        `;
-        cyberCol.appendChild(item);
-      });
-      
-      // Programming Column
-      const progCol = document.createElement('div');
-      progCol.className = 'cert-column';
-      progCol.innerHTML = '<div class="cert-header">Programming</div>';
-      portfolioData.certifications.programming.forEach(cert => {
-        const item = document.createElement('div');
-        item.className = 'cert-item';
-        item.innerHTML = `
-          <strong>${cert.name}</strong>
-          <span style="color: var(--text-light); opacity: 0.8;">${cert.issuer}</span>
-          <a href="${cert.link}" target="_blank" title="View Certificate">
-            <i class="fas fa-external-link-alt"></i>
-          </a>
-        `;
-        progCol.appendChild(item);
-      });
-      
-      grid.appendChild(cloudCol);
-      grid.appendChild(cyberCol);
-      grid.appendChild(progCol);
-      
-      section.appendChild(grid);
-      container.appendChild(section);
-    }
+  // Reusable function to create column
+  function createCertColumn(title, certArray) {
+    const col = document.createElement('div');
+    col.className = 'cert-column';
+    col.innerHTML = `<div class="cert-header">${title}</div>`;
 
+    certArray.forEach(cert => {
+      const item = document.createElement('div');
+      item.className = 'cert-item';
+
+      item.innerHTML = `
+        <strong>${cert.name}</strong>
+        <span style="color: var(--text-light); opacity: 0.8;">
+          ${cert.issuer}
+        </span>
+        <a href="${cert.link}" target="_blank" title="View Certificate">
+          <i class="fas fa-external-link-alt"></i>
+        </a>
+      `;
+
+      col.appendChild(item);
+    });
+
+    return col;
+  }
+
+  // ✅ ORDER CONTROL (System Admin BEFORE Programming)
+  grid.appendChild(createCertColumn(
+    "Cloud Technologies",
+    portfolioData.certifications.cloud
+  ));
+
+  grid.appendChild(createCertColumn(
+    "System Administration",
+    portfolioData.certifications.system_admin
+  ));
+
+  grid.appendChild(createCertColumn(
+    "Cybersecurity",
+    portfolioData.certifications.cybersecurity
+  ));
+
+  grid.appendChild(createCertColumn(
+    "DevOps",
+    portfolioData.certifications.devops
+  ));
+
+  grid.appendChild(createCertColumn(
+    "Programming",
+    portfolioData.certifications.programming
+  ));
+
+  section.appendChild(grid);
+  container.appendChild(section);
+}
+    
 
     // Render Extracurricular section
     function renderExtracurricular(container) {
