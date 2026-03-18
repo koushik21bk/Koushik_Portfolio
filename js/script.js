@@ -189,56 +189,44 @@ const portfolioData = {
     
   
 
-  
-  certifications: {
-    title: "Certifications",
-    cloud: [
-      {
-        name: "Azure Fundamentals (AZ-900)",
-        issuer: "Microsoft",
-        link: "https://drive.google.com/file/d/1sUV4suwxmdnLbACUWbduRFT-Mzj-FYsg/view?usp=drive_link"
-      },
-      {
-        name: "AWS Practitioner Essential",
-        issuer: "Coursera",
-        link: "https://drive.google.com/file/d/1Rx78j5ySUG_JvSV51-z7VvxrKhbOAI1m/view?usp=drive_link"
-      },
-      {
-        name: "CI/CD with Jenkins Ansible Kubernetes",
-        issuer: "Coursera",
-        link: "https://drive.google.com/file/d/1_guQx1uNzeTiv4Fekr3kLMR8k28RaXjF/view?usp=sharing"
-      }
-    ],
-    cybersecurity: [
-      {
-        name: "Cybersecurity Support Technician",
-        issuer: "Cisco",
-        link: "https://drive.google.com/file/d/1B2WZUSJ2pdfcFoYWnNEaHd-VVDOQHcHA/view?usp=drive_link"
-      },
-      {
-        name: "Mastering DevOps",
-        issuer: "Infosys Springboard",
-        link: "#"
-      },
-      {
-        name: "Digital Forensics",
-        issuer: "Coursera",
-        link: "https://drive.google.com/file/d/1NeOagw7TluZbdMeKrmL4PFR6q6jipwpp/view?usp=sharing"
-      }
-    ],
-    programming: [
-      {
-        name: "Java Programming",
-        issuer: "HackerRank",
-        link: "https://www.hackerrank.com/certificates/3e29e614211b"
-      },
-      {
-        name: "Java Full Stack Web Development",
-        issuer: "Tap Academy",
-        link: "https://drive.google.com/file/d/1Y3N5o9W96ErDGmjXC7wDUXknzneP0iL-/view?usp=drive_link"
-      }
-    ]
-  },
+function renderCertifications(container) {
+  const section = createSection(portfolioData.certifications.title);
+  const grid = document.createElement('div');
+  grid.className = 'cert-grid';
+
+  // Loop through all categories dynamically
+  Object.entries(portfolioData.certifications).forEach(([key, value]) => {
+    if (key === "title") return;
+
+    const column = document.createElement('div');
+    column.className = 'cert-column';
+
+    // Convert key to readable title
+    const title = key.replace("_", " ").replace(/\b\w/g, c => c.toUpperCase());
+
+    column.innerHTML = `<div class="cert-header">${title}</div>`;
+
+    value.forEach(cert => {
+      const item = document.createElement('div');
+      item.className = 'cert-item';
+
+      item.innerHTML = `
+        <strong>${cert.name}</strong>
+        <span style="color: var(--text-light); opacity: 0.8;">${cert.issuer}</span>
+        <a href="${cert.link}" target="_blank">
+          <i class="fas fa-external-link-alt"></i>
+        </a>
+      `;
+
+      column.appendChild(item);
+    });
+
+    grid.appendChild(column);
+  });
+
+  section.appendChild(grid);
+  container.appendChild(section);
+}
   
   extracurricular: {
     title: "Extracurricular Activities",
