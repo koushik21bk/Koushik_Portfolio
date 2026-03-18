@@ -593,13 +593,10 @@ body {
   transform: translateY(-2px);
 }
 
-
-
-
 /* CERTIFICATIONS */
 .cert-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
 }
@@ -610,6 +607,7 @@ body {
   gap: 1rem;
 }
 
+/* Header */
 .cert-header {
   text-align: center;
   padding: 1rem;
@@ -619,8 +617,10 @@ body {
   font-weight: 600;
   font-size: 1.1rem;
   box-shadow: var(--shadow);
+  text-transform: capitalize; /* Makes 'system_admin' look clean */
 }
 
+/* Cards */
 .cert-item {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -631,7 +631,7 @@ body {
 }
 
 .cert-item:hover {
-  transform: translateY(-3px);
+  transform: translateY(-5px);
   border-color: var(--primary);
   box-shadow: var(--glow);
 }
@@ -640,8 +640,15 @@ body {
   color: var(--primary);
   display: block;
   margin-bottom: 0.5rem;
+  font-size: 1rem;
 }
 
+.cert-item span {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Link icon */
 .cert-item a {
   color: var(--primary);
   text-decoration: none;
@@ -652,6 +659,8 @@ body {
 .cert-item a:hover {
   color: var(--primary-light);
 }
+
+
 
 
 
