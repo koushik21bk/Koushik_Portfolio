@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Koushik B K </title>
+  <title>Koushik B K | Cloud & DevOps Engineer</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
@@ -30,6 +30,10 @@
       --border-color: #e2e8f0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     html, body {
       margin: 0;
       padding: 0;
@@ -50,15 +54,57 @@
       transition: all 0.3s ease;
     }
 
-    /* Header & Social Links */
-    .socials {
+    /* Header & Navigation */
+    .header-container {
       position: fixed;
       top: 1rem;
       right: 1rem;
       z-index: 1000;
       display: flex;
       gap: 1rem;
-      align-items: center;    
+      align-items: flex-start;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.85rem;
+      padding: 0.5rem 0.8rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      backdrop-filter: blur(10px);
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+      border-color: var(--primary);
+      box-shadow: var(--neon-glow);
+      transform: translateY(-1px);
+    }
+
+    .nav-links a.active {
+      color: var(--primary);
+      background: rgba(0, 188, 212, 0.15);
+      border-color: var(--primary);
+    }
+
+    .socials {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
     }
 
     .socials a {
@@ -156,6 +202,7 @@
       margin: 0.2rem 0;
       font-size: 1rem;
     }
+
     .skills-tagline {
       margin-top: 1rem;
       font-style: italic;
@@ -195,6 +242,7 @@
       position: relative;
       z-index: 10;
       transition: all 0.3s ease;
+      padding: 1rem 0;
     }
 
     .floating-text span {
@@ -211,55 +259,22 @@
       to { transform: translateX(-100%); }
     }
 
-    /* Scroll Button
-    .scroll-button {
-      display: block;
-      margin: 2rem auto;
-      background: transparent;
-      border: 2px solid var(--primary);
-      border-radius: 50%;
-      padding: 0.6rem 0.8rem;
-      color: var(--primary);
-      font-size: 1.5rem;
-      cursor: pointer;
-      box-shadow: var(--neon-glow);
-      transition: all 0.3s ease;
-      animation: bounce 1.5s infinite;
-      position: relative;
-      z-index: 10;
-    } */
-
-    .scroll-button:hover {
-      background: var(--primary);
-      color: var(--bg-dark);
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0);}
-      50% { transform: translateY(12px);}
-    }
-
     /* Portfolio Section */
     .portfolio-section {
       padding: 4rem 2rem;
-      background-color: var(--overlay-bg);
+      background-color: var(--bg-dark);
       position: relative;
       z-index: 2;
       min-height: 100vh;
-      animation: fadeIn 1.5s;
       transition: all 0.3s ease;
       max-width: 1200px;
       margin: 0 auto;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(40px);}
-      to { opacity: 1; transform: translateY(0);}
-    }
-
     /* Section Styling */
     .section {
       margin-bottom: 6rem;
+      scroll-margin-top: 100px;
     }
 
     .section h2 {
@@ -338,7 +353,7 @@
     /* Grid Layouts */
     .two-column {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
       gap: 2rem;
     }
 
@@ -351,7 +366,7 @@
     /* Certifications Grid */
     .cert-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
       margin-top: 2rem;
     }
@@ -551,10 +566,19 @@
         font-size: 2.5rem;
       }
       
-      .socials {
+      .header-container {
         top: 0.5rem;
         right: 0.5rem;
-        gap: 0.5rem;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        gap: 0.3rem;
+      }
+
+      .nav-links a {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.6rem;
       }
       
       .socials a,
@@ -564,7 +588,10 @@
         font-size: 1.1rem;
       } 
       
-      .two-column,
+      .two-column {
+        grid-template-columns: 1fr;
+      }
+      
       .three-column {
         grid-template-columns: 1fr;
       }
@@ -594,6 +621,10 @@
       .card {
         padding: 1.5rem;
       }
+
+      .two-column {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -601,22 +632,29 @@
   <canvas class="circuit-bg"></canvas>
   <div class="overlay"></div>
   
+  <!-- Header with Navigation and Social Links -->
+  <div class="header-container">
+    <nav class="nav-links">
+      <a href="#education" data-section="education">Education</a>
+      <a href="#experience" data-section="experience">Experience</a>
+      <a href="#skills" data-section="skills">Skills</a>
+      <a href="#projects" data-section="projects">Projects</a>
+      <a href="#certifications" data-section="certifications">Certifications</a>
+      <a href="#extracurricular" data-section="extracurricular">Extracurricular</a>
+    </nav>
 
-  
-<!-- Header with Social Links & Theme Toggle -->
-<div class="socials">
-  <a href="https://github.com/Koushik21bk" target="_blank" title="GitHub">
-    <i class="fab fa-github"></i>
-  </a>
-  <a href="https://www.linkedin.com/in/koushik21bk/" target="_blank" title="LinkedIn">
-    <i class="fab fa-linkedin"></i>
-  </a>
-  <button class="theme-switch" onclick="toggleTheme()" title="Toggle Theme">
-    <i class="fas fa-sun" id="theme-icon"></i>
-  </button>
-</div>
-
-
+    <div class="socials">
+      <a href="https://github.com/Koushik21bk" target="_blank" title="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/koushik21bk/" target="_blank" title="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <button class="theme-switch" onclick="toggleTheme()" title="Toggle Theme">
+        <i class="fas fa-sun" id="theme-icon"></i>
+      </button>
+    </div>
+  </div>
 
   <!-- Profile Section -->
   <div class="profile-section">
@@ -627,24 +665,16 @@
       <p><i class="fas fa-envelope" style="color: var(--primary); margin-right: 0.5rem;"></i> koushik21bk@gmail.com</p>
       <p><i class="fas fa-phone" style="color: var(--primary); margin-right: 0.5rem;"></i> +91 7899374645</p>
       <p class="skills-tagline">AWS | Azure | Infrastructure support | DevOps | Cybersecurity | Python</p>
-      <a href="https://drive.google.com/file/d/1A8QtvTxgvFZZHKabbTN62mkRGRztUBrj/view?usp=drive_link" 
-         target="_blank" class="resume-button">
+      <a href="https://drive.google.com/file/d/1A8QtvTxgvFZZHKabbTN62mkRGRztUBrj/view?usp=drive_link" target="_blank" class="resume-button">
         <i class="fas fa-download"></i> Resume
       </a>
     </div>
   </div>
 
-
   <!-- Floating Text -->
   <div class="floating-text">
     <span> • Let's connect! • </span>
   </div>
-  
-  <!-- Scroll Button
-  <button class="scroll-button" onclick="document.getElementById('portfolio').scrollIntoView({behavior: 'smooth'})">
-    <i class="fas fa-chevron-down"></i>
-  </button> -->
-
 
   <!-- Portfolio Section -->
   <div class="portfolio-section" id="portfolio">
@@ -673,7 +703,7 @@
       }
     }
 
-    // Load saved theme
+    // Load saved theme and initialize
     window.addEventListener('DOMContentLoaded', () => {
       const savedTheme = localStorage.getItem('theme');
       const themeIcon = document.getElementById('theme-icon');
@@ -684,9 +714,54 @@
       }
       
       initializePortfolio();
+      initializeNavigation();
     });
 
-    // Portfolio data based on your resume
+    // Navigation functionality
+    function initializeNavigation() {
+      const navLinks = document.querySelectorAll('.nav-links a');
+
+      // Smooth scroll for navigation links
+      navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('href').substring(1);
+          const targetSection = document.getElementById(targetId);
+          if (targetSection) {
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      });
+
+      // Highlight active section on scroll
+      const observerOptions = {
+        threshold: 0.3,
+        rootMargin: '-100px 0px -50% 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const sectionId = entry.target.id;
+            navLinks.forEach(link => {
+              link.classList.remove('active');
+              if (link.getAttribute('data-section') === sectionId) {
+                link.classList.add('active');
+              }
+            });
+          }
+        });
+      }, observerOptions);
+
+      // Start observing sections after they're created
+      setTimeout(() => {
+        document.querySelectorAll('.section').forEach(section => {
+          observer.observe(section);
+        });
+      }, 100);
+    }
+
+    // Portfolio data
     const portfolioData = {
       about: {
         title: "About Me",
@@ -695,29 +770,6 @@ infrastructure monitoring, platform support, and incident resolution. Skilled in
 management, networking fundamentals, and system reliability. Microsoft Azure Fundamentals (AZ-900) certified
 with experience supporting Microsoft 365 and Power Platform environments.`
       },
-      
-experience: {
-  title: "Experience",
-  items: [
-    {
-      company: "Manyathy Business Solutions",
-      position: "Platform Support Engineer",
-      location: "Hybrid",
-      period: "Aug 2025 – Mar 2026",
-      description: "Provided platform and infrastructure support for Microsoft Power Platform solutions integrated with Microsoft Azure and Microsoft 365. Managed user provisioning, RBAC, and identity-related issues. Monitored platform health, resolved production incidents, and performed root cause analysis. Configured PowerApps environments and collaborated using Azure DevOps for issue tracking, improving incident resolution efficiency by 30%."
-    },
-
-    {
-      company: "Jain University",
-      position: "Backend Developer Intern (PCL)",
-      location: "On-site",
-      period: "Sep 2023 – May 2025",
-      description: "Contributed to backend development by implementing secure authentication, course enrollment, learning progress tracking, and proctored test functionalities. Ensured session persistence, real-time monitoring, and seamless integration with the front-end. The platform was adopted by the CS & IT MCA department."
-    }
-  ]
-},
-            
-      
 
       education: {
         title: "Education",
@@ -736,23 +788,104 @@ experience: {
           }
         ]
       },
-      
 
+      experience: {
+        title: "Experience",
+        items: [
+          {
+            company: "Manyathy Business Solutions",
+            position: "Platform Support Engineer",
+            location: "Hybrid",
+            period: "Aug 2025 – Mar 2026",
+            description: "Provided platform and infrastructure support for Microsoft Power Platform solutions integrated with Microsoft Azure and Microsoft 365. Managed user provisioning, RBAC, and identity-related issues. Monitored platform health, resolved production incidents, and performed root cause analysis. Configured PowerApps environments and collaborated using Azure DevOps for issue tracking, improving incident resolution efficiency by 30%."
+          },
+          {
+            company: "Jain University",
+            position: "Backend Developer Intern (PCL)",
+            location: "On-site",
+            period: "Sep 2023 – May 2025",
+            description: "Contributed to backend development by implementing secure authentication, course enrollment, learning progress tracking, and proctored test functionalities. Ensured session persistence, real-time monitoring, and seamless integration with the front-end. The platform was adopted by the CS & IT MCA department."
+          }
+        ]
+      },
 
-       projects: {
+      skills: {
+        title: "Skills",
+        categories: [
+          {
+            name: "System Administration",
+            skills: [
+              "Active Directory",
+              "User Provisioning",
+              "User & Group Management",
+              "RBAC",
+              "System Configuration",
+              "Software Installation",
+              "Incident Management",
+              "Platform Monitoring"
+            ]
+          },
+          {
+            name: "Cloud & Infrastructure",
+            skills: [
+              "AWS (EC2, IAM, VPC, S3, CloudWatch)",
+              "Microsoft Azure",
+              "Microsoft 365 Administration",
+              "Power Platform"
+            ]
+          },
+          {
+            name: "Networking",
+            skills: [
+              "TCP/IP",
+              "DNS",
+              "DHCP",
+              "VLAN",
+              "VPN",
+              "LAN/WAN",
+              "OSI Model"
+            ]
+          },
+          {
+            name: "DevOps & Tools",
+            skills: [
+              "Ansible",
+              "Jenkins",
+              "CI/CD Pipelines",
+              "GitHub",
+              "Terraform (Basics)",
+              "Azure DevOps"
+            ]
+          },
+          {
+            name: "Operating Systems",
+            skills: [
+              "Windows",
+              "Windows Server",
+              "Linux (Ubuntu, AMI)"
+            ]
+          },
+          {
+            name: "Programming",
+            skills: [
+              "Python (Basics)"
+            ]
+          }
+        ]
+      },
+
+      projects: {
         title: "Projects",
         items: [
           {
             name: "AWS EC2 - Automation",
-                    
             description: "Automated EC2 provisioning and configuration using Ansible playbooks, reducing manual deployment time. Installed and configured MySQL servers on AWS instances as part of automated infrastructure setup. Enhanced cloud readiness by implementing consistent and repeatable automation workflows.",
             tech: ["Ansible", "Ansible Galaxy", "AWS EC2", "Visual Studio Code"],
             github: "https://github.com/koushik21bk/Ansible-Galaxy-Automation",
-             period: "Mar 2025 – May 2025"
+            period: "Mar 2025 – May 2025"
           },
           {
             name: "ZenDrive",
-             
             description: "Designed a secure, cloud-integrated CMS using DriveHQ for encrypted file storage and retrieval. Implemented data deduplication, compression, and file ranking algorithms, increasing storage efficiency by 10.91%. Applied DES encryption for secure transmission of uploaded/downloaded files to ensure data confidentiality.",
             tech: ["DriveHQ", "Java", "HeidiSQL", "Netbeans"],
             github: "https://github.com/koushik21bk/ZenDrive",
@@ -760,147 +893,101 @@ experience: {
           },
           {
             name: "QR-Based Smart Medicine System",
-            
             description: "Built a mobile app using Java and Android Studio to scan medicine QR codes and display real-time prescription data. Integrated a smart reminder system with alerts for scheduled and emergency-based medication notifications. Used MySQL and PHP (XAMPP) for storing and retrieving dosage, expiry, and side-effect data from a central database.",
-           tech: ["Java", "Android Studio", "MySQL", "PHP"], 
-           github: "https://github.com/koushik21bk/REAL-TIME-QR-CODE-BASED-SMART-MEDICINE-SYSTEM",
-          period: "Jun 2022 – Nov 2022"
+            tech: ["Java", "Android Studio", "MySQL", "PHP"], 
+            github: "https://github.com/koushik21bk/REAL-TIME-QR-CODE-BASED-SMART-MEDICINE-SYSTEM",
+            period: "Jun 2022 – Nov 2022"
           }
         ]
       },
-      
-skills: {
-  title: "Skills",
-  categories: [
-    {
-      name: "System Administration",
-      skills: [
-        "Active Directory",
-        "User Provisioning",
-        "User & Group Management",
-        "RBAC",
-        "System Configuration",
-        "Software Installation",
-        "Incident Management",
-        "Platform Monitoring"
-      ]
-    },
-    {
-      name: "Cloud & Infrastructure",
-      skills: [
-        "AWS (EC2, IAM, VPC, S3, CloudWatch)",
-        "Microsoft Azure",
-        "Microsoft 365 Administration",
-        "Power Platform"
-      ]
-    },
-    {
-      name: "Networking",
-      skills: [
-        "TCP/IP",
-        "DNS",
-        "DHCP",
-        "VLAN",
-        "VPN",
-        "LAN/WAN",
-        "OSI Model"
-      ]
-    },
-    {
-      name: "DevOps & Tools",
-      skills: [
-        "Ansible",
-        "Jenkins",
-        "CI/CD Pipelines",
-        "GitHub",
-        "Terraform (Basics)",
-        "Azure DevOps"
-      ]
-    },
-    {
-      name: "Operating Systems",
-      skills: [
-        "Windows",
-        "Windows Server",
-        "Linux (Ubuntu, AMI)"
-      ]
-    },
-    {
-      name: "Programming",
-      skills: [
-        "Python (Basics)"
-      ]
-    }
-  ]
-},
+
       certifications: {
-  title: "Certifications",
+        title: "Certifications",
+        cloud: [
+          {
+            name: "Azure Fundamentals (AZ-900)",
+            issuer: "Microsoft",
+            link: "https://drive.google.com/file/d/1sUV4suwxmdnLbACUWbduRFT-Mzj-FYsg/view?usp=drive_link"
+          },
+          {
+            name: "AWS Cloud Practitioner Essentials",
+            issuer: "Amazon Web Services (Coursera)",
+            link: "https://drive.google.com/file/d/1Rx78j5ySUG_JvSV51-z7VvxrKhbOAI1m/view?usp=drive_link"
+          },
+          {
+            name: "CI/CD with Jenkins, Ansible & Kubernetes",
+            issuer: "Coursera",
+            link: "https://drive.google.com/file/d/1_guQx1uNzeTiv4Fekr3kLMR8k28RaXjF/view?usp=sharing"
+          }
+        ],
+        system_admin: [
+          {
+            name: "Career Essentials in System Administration",
+            issuer: "Microsoft & LinkedIn Learning",
+            link: "https://drive.google.com/file/d/1BomYHoboAL1KKbJRnvJh8jGE-IUJ181K/view?usp=sharing"
+          },
+          {
+            name: "Managing Windows Servers, Virtualization & Containerization",
+            issuer: "Coursera",
+            link: "https://drive.google.com/file/d/1kF33Ow-6QpCizNJmXI4Q5aa29pPZUAPZ/view?usp=sharing"
+          }
+        ],
+        cybersecurity: [
+          {
+            name: "Cybersecurity Support Technician",
+            issuer: "Cisco",
+            link: "https://drive.google.com/file/d/1B2WZUSJ2pdfcFoYWnNEaHd-VVDOQHcHA/view?usp=drive_link"
+          },
+          {
+            name: "Digital Forensics",
+            issuer: "Coursera",
+            link: "https://drive.google.com/file/d/1NeOagw7TluZbdMeKrmL4PFR6q6jipwpp/view?usp=sharing"
+          }
+        ],
+        devops: [
+          {
+            name: "Mastering DevOps",
+            issuer: "Infosys Springboard",
+            link: "#"
+          }
+        ],
+        programming: [
+          {
+            name: "Python Programming",
+            issuer: "HackerRank",
+            link: "https://www.hackerrank.com/certificates/0470541c3407"
+          },
+          {
+            name: "Java Programming",
+            issuer: "HackerRank",
+            link: "https://www.hackerrank.com/certificates/3e29e614211b"
+          }
+        ]
+      },
 
-  cloud: [
-    {
-      name: "Azure Fundamentals (AZ-900)",
-      issuer: "Microsoft",
-      link: "https://drive.google.com/file/d/1sUV4suwxmdnLbACUWbduRFT-Mzj-FYsg/view?usp=drive_link"
-    },
-    {
-      name: "AWS Cloud Practitioner Essentials",
-      issuer: "Amazon Web Services (Coursera)",
-      link: "https://drive.google.com/file/d/1Rx78j5ySUG_JvSV51-z7VvxrKhbOAI1m/view?usp=drive_link"
-    },
-    {
-      name: "CI/CD with Jenkins, Ansible & Kubernetes",
-      issuer: "Coursera",
-      link: "https://drive.google.com/file/d/1_guQx1uNzeTiv4Fekr3kLMR8k28RaXjF/view?usp=sharing"
-    }
-  ],
-
-  system_admin: [
-    {
-      name: "Career Essentials in System Administration",
-      issuer: "Microsoft & LinkedIn Learning",
-      link: "https://drive.google.com/file/d/1BomYHoboAL1KKbJRnvJh8jGE-IUJ181K/view?usp=sharing"
-    },
-    {
-      name: "Managing Windows Servers, Virtualization & Containerization",
-      issuer: "Coursera",
-      link: "https://drive.google.com/file/d/1kF33Ow-6QpCizNJmXI4Q5aa29pPZUAPZ/view?usp=sharing"
-    }
-  ],
-
-  cybersecurity: [
-    {
-      name: "Cybersecurity Support Technician",
-      issuer: "Cisco",
-      link: "https://drive.google.com/file/d/1B2WZUSJ2pdfcFoYWnNEaHd-VVDOQHcHA/view?usp=drive_link"
-    },
-    {
-      name: "Digital Forensics",
-      issuer: "Coursera",
-      link: "https://drive.google.com/file/d/1NeOagw7TluZbdMeKrmL4PFR6q6jipwpp/view?usp=sharing"
-    }
-  ],
-
-  devops: [
-    {
-      name: "Mastering DevOps",
-      issuer: "Infosys Springboard",
-      link: "#"
-    }
-  ],
-
-  programming: [
-    {
-      name: "Python Programming",
-      issuer: "HackerRank",
-      link: "https://www.hackerrank.com/certificates/0470541c3407"
-    },
-    {
-      name: "Java Programming",
-      issuer: "HackerRank",
-      link: "https://www.hackerrank.com/certificates/3e29e614211b"
-    }
-  ]
-}
+      extracurricular: {
+        title: "Extracurricular Activities",
+        items: [
+          {
+            title: "Published Paper",
+            description: "Synergizing Cloud in Autonomous Vehicles (2024) - IJSREM",
+            link: "#"
+          },
+          {
+            title: "Volunteer Work",
+            description: "Active in National Service Scheme (2019-2022)"
+          },
+          {
+            title: "Languages",
+            description: "English (Fluent), Hindi (Fluent), Kannada (Native)"
+          },
+          {
+            title: "Interests",
+            description: "Emerging technologies, Novels, Dance, Music"
+          }
+        ]
+      }
+    };
 
     // Initialize portfolio
     function initializePortfolio() {
@@ -918,7 +1005,7 @@ skills: {
 
     // Render About section
     function renderAbout(container) {
-      const section = createSection(portfolioData.about.title);
+      const section = createSection(portfolioData.about.title, 'about');
       const card = createCard();
       card.innerHTML = `<p style="font-size: 1.1rem; line-height: 1.8;">${portfolioData.about.content}</p>`;
       section.appendChild(card);
@@ -927,7 +1014,7 @@ skills: {
 
     // Render Education section
     function renderEducation(container) {
-      const section = createSection(portfolioData.education.title);
+      const section = createSection(portfolioData.education.title, 'education');
       const timeline = document.createElement('div');
       timeline.className = 'timeline';
       
@@ -951,7 +1038,7 @@ skills: {
 
     // Render Experience section
     function renderExperience(container) {
-      const section = createSection(portfolioData.experience.title);
+      const section = createSection(portfolioData.experience.title, 'experience');
       const timeline = document.createElement('div');
       timeline.className = 'timeline';
       
@@ -975,7 +1062,7 @@ skills: {
 
     // Render Skills section
     function renderSkills(container) {
-      const section = createSection(portfolioData.skills.title);
+      const section = createSection(portfolioData.skills.title, 'skills');
       const grid = document.createElement('div');
       grid.className = 'skills-grid';
       
@@ -995,9 +1082,9 @@ skills: {
       container.appendChild(section);
     }
 
-        // Render Projects section
+    // Render Projects section
     function renderProjects(container) {
-      const section = createSection(portfolioData.projects.title);
+      const section = createSection(portfolioData.projects.title, 'projects');
       const grid = document.createElement('div');
       grid.className = 'two-column';
       
@@ -1020,72 +1107,48 @@ skills: {
       container.appendChild(section);
     }
 
-// Render Certifications section
-function renderCertifications(container) {
-  const section = createSection(portfolioData.certifications.title);
-  const grid = document.createElement('div');
-  grid.className = 'cert-grid';
+    // Render Certifications section
+    function renderCertifications(container) {
+      const section = createSection(portfolioData.certifications.title, 'certifications');
+      const grid = document.createElement('div');
+      grid.className = 'cert-grid';
 
-  // Reusable function to create column
-  function createCertColumn(title, certArray) {
-    const col = document.createElement('div');
-    col.className = 'cert-column';
-    col.innerHTML = `<div class="cert-header">${title}</div>`;
+      // Create certification columns
+      function createCertColumn(title, certArray) {
+        const col = document.createElement('div');
+        col.className = 'cert-column';
+        col.innerHTML = `<div class="cert-header">${title}</div>`;
 
-    certArray.forEach(cert => {
-      const item = document.createElement('div');
-      item.className = 'cert-item';
+        certArray.forEach(cert => {
+          const item = document.createElement('div');
+          item.className = 'cert-item';
+          item.innerHTML = `
+            <strong>${cert.name}</strong>
+            <span style="color: var(--text-light); opacity: 0.8;">${cert.issuer}</span>
+            <a href="${cert.link}" target="_blank" title="View Certificate">
+              <i class="fas fa-external-link-alt"></i>
+            </a>
+          `;
+          col.appendChild(item);
+        });
 
-      item.innerHTML = `
-        <strong>${cert.name}</strong>
-        <span style="color: var(--text-light); opacity: 0.8;">
-          ${cert.issuer}
-        </span>
-        <a href="${cert.link}" target="_blank" title="View Certificate">
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-      `;
+        return col;
+      }
 
-      col.appendChild(item);
-    });
+      // Add columns in order
+      grid.appendChild(createCertColumn("Cloud Technologies", portfolioData.certifications.cloud));
+      grid.appendChild(createCertColumn("System Administration", portfolioData.certifications.system_admin));
+      grid.appendChild(createCertColumn("Cybersecurity", portfolioData.certifications.cybersecurity));
+      grid.appendChild(createCertColumn("DevOps", portfolioData.certifications.devops));
+      grid.appendChild(createCertColumn("Programming", portfolioData.certifications.programming));
 
-    return col;
-  }
-
-  // ✅ ORDER CONTROL (System Admin BEFORE Programming)
-  grid.appendChild(createCertColumn(
-    "Cloud Technologies",
-    portfolioData.certifications.cloud
-  ));
-
-  grid.appendChild(createCertColumn(
-    "System Administration",
-    portfolioData.certifications.system_admin
-  ));
-
-  grid.appendChild(createCertColumn(
-    "Cybersecurity",
-    portfolioData.certifications.cybersecurity
-  ));
-
-  grid.appendChild(createCertColumn(
-    "DevOps",
-    portfolioData.certifications.devops
-  ));
-
-  grid.appendChild(createCertColumn(
-    "Programming",
-    portfolioData.certifications.programming
-  ));
-
-  section.appendChild(grid);
-  container.appendChild(section);
-}
-    
+      section.appendChild(grid);
+      container.appendChild(section);
+    }
 
     // Render Extracurricular section
     function renderExtracurricular(container) {
-      const section = createSection(portfolioData.extracurricular.title);
+      const section = createSection(portfolioData.extracurricular.title, 'extracurricular');
       const card = createCard();
       
       const list = document.createElement('ul');
@@ -1104,9 +1167,10 @@ function renderCertifications(container) {
     }
 
     // Helper functions
-    function createSection(title) {
+    function createSection(title, id) {
       const section = document.createElement('section');
       section.className = 'section';
+      section.id = id;
       
       const heading = document.createElement('h2');
       heading.textContent = title;
